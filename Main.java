@@ -1,7 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        BloomFilter filter = new BloomFilter.Builder().withSize(256).build();
-
         String str = "Мимо белого яблока луны " +
                 "Мимо красного яблока заката " +
                 "Облака из неведомой страны " +
@@ -20,6 +18,7 @@ public class Main {
                 "А по небу прокатите нас облака";
 
         String[] strArray = str.split(" ");
+        BloomFilter filter = new BloomFilter(strArray.length + 1, 0.1);
 
         for (String word : strArray) {
             filter.add(word);
